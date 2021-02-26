@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+ <head><title>Hidden Page</title></head>
+ 
+<body>
+    <h2>Hidden things by Pruthvi Raj Padthe</h2>
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_secret">Enter the secret word </label>
+    <input type ="password" id="form1_secret" name="form1_secret" min=10 max=50 step=2 value=secret> <br>
+
+    <label for="form1_guess">Enter a guess </label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="processGuess()" value="Check the guess">
+</form>
+
+
+<p id="result">result</p>
+
+<script> 
+
+    var correct=0;
+    var wrong=0;
+    function processGuess(){
+         console.log("Getting form values")
+         secret = document.getElementById("form1_secret").value
+         guess = document.getElementById("form1_guess").value
+         out = document.getElementById("result")
+        if(secret == guess){
+                correct=correct+1;
+                 alert("congratulations");
+                 out.innerHTML = "correct attempts"+correct
+        } 
+        else {
+            wrong=wrong+1;
+            alert("sorry");
+            out.innerHTML = "wrong attempts"+wrong
+        }
+    
+    }  </script>
+    <div class="container">
+        <img id="plants" src="amaryllis.jpg" width="200" height="200" onclick="rotateImage()">
+    </div>
+    <script>
+        var currentImage=0;
+        function rotateImage()
+        {
+    switch(currentImage){
+        case 0:
+            currentImage=currentImage+1;
+            document.getElementById("plants").src= "amaryllis.jpg"
+            break;
+            case 1:
+            currentImage=currentImage+1;
+            document.getElementById("plants").src= "dandelion.jpg"
+            break;
+            case 2:
+            currentImage=currentImage+1;
+            document.getElementById("plants").src= "palmetto.jpg"
+            break;
+            default:
+                currentImage=0
+                document.getElementById("plants").src= "amaryllis.jpg"
+    
+    }
+        }
+    </script>
+    
+</script>
+
+</body>
+</html> 
