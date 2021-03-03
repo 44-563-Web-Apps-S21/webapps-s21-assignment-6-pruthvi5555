@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title> Arthimetic Calculations </title>
+ </head>
+<body>
+
+<h2>Pruthvi Raj Padthe computes</h2>
+
+<form>
+    <label for="first_number">Enter a number</label>
+    <input type ="number" id="first_number" name="first_number" value=10> <br>
+
+    <label for="second_number">Enter a number </label>
+    <input type ="number" id="second_number" name="second_number" value=2> <br>
+
+    <input type="button" onclick="permutations()" value="compute">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<form>
+    <input type="radio" id="plus" name="plus" value="plus">
+    <label for="plus">+</label></br>
+
+    <input type="radio" id="minus" name="minus" value="minus">
+    <label for="minus">-</label></br>
+
+    <input type="radio" id="times" name="times" value="times">
+    <label for="times">*</label></br>
+
+    <input type="radio" id="divide" name="divide" value="divide">
+    <label for="divide">/</label></br>
+
+
+    <input type="button" onclick="processRadio()" value="Get values from radio group">
+  </form>
+
+  <p id="result2">The result will be displayed here</p>
+
+
+<script> 
+
+function permutations(){
+    console.log("Getting form values")
+        var first = document.getElementById("first_number").value
+        var second = document.getElementById("second_number").value
+        var product=1;
+        for(let i=first;i>=(first-second+1);i--){
+            product *=i;
+        }
+
+        out = document.getElementById("result")
+        out.innerHTML = product
+    }
+
+function processRadio(){
+    first = document.getElementById("first_number").value
+    second = document.getElementById("second_number").value
+
+    first=parseInt(first);
+    second=parseInt(second);
+
+    if(document.getElementById("plus").checked){
+        first += second;
+
+    }else if(document.getElementById("minus").checked){
+        first-=second;
+
+    }else if(document.getElementById("times").checked){
+        first *= second;
+
+    }else{
+        first /= second;
+    }
+
+    out = document.getElementById("result2")
+    out.innerHTML = first
+
+}
+</script>
+
+</body>
+</html>  
