@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Bear Page
+        </title>
+    </head>
+
+<body>
+
+<h2>Pruthvi Raj Padthe builds a bear</h2>
+
+    <form>
+        <input type="checkbox" id="create_hat" name="create_hat"   
+          value="hat">
+        <label for="create_hat">hat</label></br>
+    
+        <input type="checkbox" id="create_scarf" name="create_scarf" 
+           value="scarf">
+        <label for="create_scarf">scarf</label></br>
+    
+        <input type="checkbox" id="create_shirt" name="create_shirt"   
+           value="shirt" >
+        <label for="create_shirt">shirt</label></br>
+    
+        <input type="button" onclick="startbear()" value="Start a bear">
+      </form>
+    
+    
+    <p id="result">This text will be replaced </p>
+    
+    <form>
+        <label for="form1_property_name">Enter a property</label>
+        <input type ="text" id="form1_property_name" name="form1_property_name" value="color"> <br>
+    
+        <label for="form1_property_value">Enter a value</label>
+        <input type ="text" id="form1_property_value" name="form1_property_value" ><br> 
+        <input type="button" onclick="updatebear()" value="Update the bear">
+    
+    </form>
+    <p id="updatedResult">This text will be replaced </p>
+    <script> 
+        var my_bear={};
+        function startbear(){
+        hatBoolean = document.getElementById("create_hat").checked
+        my_bear.hat=hatBoolean;
+        scarfBoolean = document.getElementById("create_scarf").checked
+        my_bear.scarf=scarfBoolean;
+        shirtBoolean =  document.getElementById("create_shirt").checked
+        my_bear.shirt=shirtBoolean;    
+        var property, txt = "";
+        for (property in my_bear) {
+        txt += property+" : "+my_bear[property] + "    ";
+        };
+        document.getElementById("result").innerHTML = txt;
+        }
+    
+        function updatebear(){
+            propertyName=document.getElementById("form1_property_name").value
+            propertyValue=document.getElementById("form1_property_value").value
+            my_bear[propertyName] = propertyValue;
+            var property, txt = "";
+            for (property in my_bear) {
+                txt += property+" : "+my_bear[property] + "    ";
+            };
+            document.getElementById("updatedResult").innerHTML = txt;
+        }
+    </script>
+    </body>
+    </html>  
